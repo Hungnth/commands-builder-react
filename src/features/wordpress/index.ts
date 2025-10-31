@@ -1,5 +1,5 @@
-import { WordPressPage } from './pages/WordPressPage.tsx';
-import { wpTemplates } from './data/wpTemplates.ts';
+import { ModulePage } from './pages/ModulePage.tsx';
+import { templates } from './data/templates.ts';
 import { WordPressIcon } from './components/WordPressIcon.tsx';
 
 /**
@@ -9,6 +9,6 @@ export const wordpressModule = {
     name: 'WordPress',
     path: '/wordpress',
     icon: WordPressIcon,
-    element: WordPressPage,
-    templates: wpTemplates,
+    element: ModulePage,
+    templates: templates,
 } as const;
