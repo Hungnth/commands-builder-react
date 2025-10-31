@@ -9,7 +9,8 @@ export const templates: CommandTemplate[] = [
         placeholders: ['repo'],
         commands: [
             'git init && git config user.name "Hungnth" && git config user.email "thienhungnth@gmail.com" && git add . && git commit -m "Initial commit" && git branch -M main',
-            'git remote add origin git@hungnth:Hungnth/${repo}.git'
+            'git remote add origin git@hungnth:Hungnth/${repo}.git',
+            'git remote set-url origin git@hungnth:Hungnth/${repo}.git',
         ],
     },
     {
