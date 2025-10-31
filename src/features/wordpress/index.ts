@@ -3,7 +3,7 @@ import { templates } from './data/templates.ts';
 import { WordPressIcon } from './components/WordPressIcon.tsx';
 
 /**
- * Git Module Configuration
+ * Module Configuration
  */
 export const wordpressModule = {
     name: 'WordPress',
