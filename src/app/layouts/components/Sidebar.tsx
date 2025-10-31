@@ -74,7 +74,6 @@ export function Sidebar() {
                             <p className="text-xs">HungNth</p>
                         </a>
                     </Button>
-
                 </div>
             </div>
         </aside>

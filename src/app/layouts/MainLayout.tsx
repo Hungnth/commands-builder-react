@@ -19,7 +19,7 @@ export function MainLayout() {
                 {/* Main Content */}
                 <main className="flex-1 p-6 lg:p-8">
                     <div className="max-w-full">
-                        <Outlet />
+                        <Outlet />                        
                     </div>
                 </main>
             </div>
