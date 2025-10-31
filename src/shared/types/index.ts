@@ -25,11 +25,12 @@ export type CommandTemplate = {
   placeholders: string[];
 
   /**
-   * Một mảng các template string.
+   * Một mảng các template string hoặc object với note và cmd.
    * Sử dụng cú pháp `${key}` để tham chiếu đến các giá trị từ 'placeholders'.
    * Ví dụ: 'git remote add origin git@${user}:${user}/${repo}.git'
+   * Hoặc: { note: 'Mô tả', cmd: 'git remote add origin git@${user}:${user}/${repo}.git' }
    */
-  commands: string[];
+  commands: (string | { note?: string; cmd: string })[];
 };
 
 /**

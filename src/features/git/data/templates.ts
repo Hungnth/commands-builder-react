@@ -8,9 +8,9 @@ export const templates: CommandTemplate[] = [
         description: 'Cấu hình một repo hoàn toàn mới với user Hungnth',
         placeholders: ['repo'],
         commands: [
-            'git init && git config user.name "Hungnth" && git config user.email "thienhungnth@gmail.com" && git add . && git commit -m "Initial commit" && git branch -M main',
-            'git remote add origin git@hungnth:Hungnth/${repo}.git',
-            'git remote set-url origin git@hungnth:Hungnth/${repo}.git',
+            { cmd: 'git init && git config user.name "Hungnth" && git config user.email "thienhungnth@gmail.com" && git add . && git commit -m "Initial commit" && git branch -M main' },
+            { cmd: 'git remote add origin git@hungnth:Hungnth/${repo}.git' },
+            { cmd: 'git remote set-url origin git@hungnth:Hungnth/${repo}.git' },
         ],
     },
     {
@@ -20,8 +20,8 @@ export const templates: CommandTemplate[] = [
         description: 'Clone một repository từ GitHub với user HungNth',
         placeholders: ['repo'],
         commands: [
-            'git clone git@hungnth:Hungnth/${repo}.git',
-            'git config user.name "Hungnth" && git config user.email "thienhungnth@gmail.com"'
+            { cmd: 'git clone git@hungnth:Hungnth/${repo}.git' },
+            { cmd: 'git config user.name "Hungnth" && git config user.email "thienhungnth@gmail.com"' }
         ],
     },
     {
@@ -30,7 +30,9 @@ export const templates: CommandTemplate[] = [
         name: '💬 Commit Message',
         description: 'Tạo commit message',
         placeholders: ['message'],
-        commands: ['git commit -m "${message}"'],
+        commands: [
+            { cmd: 'git commit -m "${message}"' }
+        ],
     },
     {
         id: 'git-create-branch',
@@ -50,8 +52,8 @@ export const templates: CommandTemplate[] = [
         description: 'Merge branch vào branch hiện tại',
         placeholders: ['branch'],
         commands: [
-            'git merge ${branch}',
-            'git push',
+            { cmd: 'git merge ${branch}' },
+            { cmd: 'git push' },
         ],
     },
     {
@@ -61,8 +63,8 @@ export const templates: CommandTemplate[] = [
         description: 'Tạo tag cho release mới',
         placeholders: ['version', 'message'],
         commands: [
-            'git tag -a ${version} -m "${message}"',
-            'git push origin ${version}',
+            { cmd: 'git tag -a ${version} -m "${message}"' },
+            { cmd: 'git push origin ${version}' },
         ],
     },
     {
@@ -71,7 +73,9 @@ export const templates: CommandTemplate[] = [
         name: '⚠️ Hard Reset',
         description: 'Reset về commit cụ thể (XÓA mọi thay đổi)',
         placeholders: ['commit'],
-        commands: ['git reset --hard ${commit}'],
+        commands: [
+            { cmd: 'git reset --hard ${commit}' }
+        ],
     },
     {
         id: 'git-stash',
@@ -80,7 +84,7 @@ export const templates: CommandTemplate[] = [
         description: 'Lưu tạm thay đổi chưa commit',
         placeholders: ['message'],
         commands: [
-            'git stash save "${message}"',
+            { cmd: 'git stash save "${message}"' },
         ],
     },
 ];

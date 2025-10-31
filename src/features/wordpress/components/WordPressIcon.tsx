@@ -1,8 +1,8 @@
-interface GitIconProps {
+interface IconProps {
     className?: string;
 }
 
-export function WordPressIcon({className = 'size-4'}: GitIconProps) {
+export function WordPressIcon({className = 'size-4'}: IconProps) {
     return (
         <svg
             viewBox="0 0 24 24"

@@ -1,11 +1,11 @@
-interface GitIconProps {
+interface IconProps {
   className?: string;
 }
 
 /**
  * Git Icon Component
  */
-export function GitIcon({ className = "size-4" }: GitIconProps) {
+export function GitIcon({ className = "size-4" }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"

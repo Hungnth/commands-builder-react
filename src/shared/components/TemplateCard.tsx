@@ -24,8 +24,27 @@ export function TemplateCard({template}: TemplateCardProps) {
     };
 
     // Generate commands với placeholders được thay thế
-    const generatedCommands = useMemo(() => {
-        return template.commands.map((cmd) => replacePlaceholders(cmd, inputs));
+    const generatedCommands: { note: string; cmd: string }[] = useMemo(() => {
+        return template.commands.map((cmd) => {
+            // If command is a plain string, replace placeholders and wrap into an object
+            if (typeof cmd === 'string') {
+                return {
+                    note: '',
+                    cmd: replacePlaceholders(cmd, inputs),
+                };
+            }
+
+            // If command is already an object { note?, cmd }, replace placeholders for each field safely
+            const note = cmd.note ? replacePlaceholders(cmd.note, inputs) : '';
+            const command = cmd.cmd
+                ? replacePlaceholders(cmd.cmd, inputs)
+                : '';
+
+            return {
+                note,
+                cmd: command,
+            };
+        });
     }, [template.commands, inputs]);
 
     // Kiểm tra xem có input nào được điền chưa
@@ -71,7 +90,12 @@ export function TemplateCard({template}: TemplateCardProps) {
                         </h4>
                         <div className="space-y-3">
                             {generatedCommands.map((command, index) => (
-                                <CommandOutput key={index} command={command} />
+                                <div key={index} className="flex flex-col gap-3">
+                                    {command.note && (
+                                        <p className='text-sm'>{command.note}</p>
+                                    )}
+                                    <CommandOutput command={command.cmd} />
+                                </div >
                             ))}
                         </div>
                     </div>

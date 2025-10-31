@@ -1,15 +1,18 @@
 import { TemplateCard, TableOfContents } from '@/shared/components';
 import { templates } from '../data/templates.ts';
 
+/**
+ * Git Page - Hiển thị tất cả Git templates
+ */
 export function ModulePage() {
     return (
         <div className="flex gap-8">
             {/* Main Content */}
             <div className="flex-1 space-y-6">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight">WordPress Commands</h1>
+                    <h1 className="text-3xl font-bold tracking-tight">Rclone Commands</h1>
                     <p className="text-muted-foreground mt-2">
-                        Tạo nhanh các lệnh cho WordPress thông dụng với các template được định nghĩa sẵn
+                        Tạo nhanh các lệnh Rclone thông dụng với các template được định nghĩa sẵn
                     </p>
                 </div>
 

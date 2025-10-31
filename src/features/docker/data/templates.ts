@@ -8,8 +8,8 @@ export const templates: CommandTemplate[] = [
         description: 'Khởi động services với Docker Compose',
         placeholders: [],
         commands: [
-            'docker-compose up -d',
-            'docker-compose down -v',
+            { cmd: 'docker-compose up -d' },
+            { cmd: 'docker-compose down -v' },
         ],
     },
     {
@@ -19,8 +19,8 @@ export const templates: CommandTemplate[] = [
         description: 'Xóa tất cả container, image, volume không sử dụng',
         placeholders: [],
         commands: [
-            'docker system prune -a',
-            'docker builder prune --all',
+            { cmd: 'docker system prune -a' },
+            { cmd: 'docker builder prune --all' },
         ],
     },
     {
@@ -30,8 +30,8 @@ export const templates: CommandTemplate[] = [
         description: 'Liệt kê và xóa các volume theo tên',
         placeholders: ['volume_name'],
         commands: [
-            'docker volume ls',
-            'docker volume rm ${volume_name}',
+            { cmd: 'docker volume ls' },
+            { cmd: 'docker volume rm ${volume_name}' },
         ],
     },
     {
@@ -41,8 +41,8 @@ export const templates: CommandTemplate[] = [
         description: 'Liệt kê và xóa các network theo tên',
         placeholders: ['network_name'],
         commands: [
-            'docker network ls',
-            'docker network rm ${network_name}',
+            { cmd: 'docker network ls' },
+            { cmd: 'docker network rm ${network_name}' },
         ],
     },
     {
@@ -52,8 +52,8 @@ export const templates: CommandTemplate[] = [
         description: 'Liệt kê và xóa các image theo tên',
         placeholders: ['image_name'],
         commands: [
-            'docker images ls',
-            'docker rmi ${image_name}',
+            { cmd: 'docker images ls' },
+            { cmd: 'docker rmi ${image_name}' },
         ],
     },
     {
@@ -62,7 +62,9 @@ export const templates: CommandTemplate[] = [
         name: '💻 Execute Command',
         description: 'Thực thi lệnh trong container đang chạy',
         placeholders: ['container', 'command'],
-        commands: ['docker exec -it ${container} ${command}'],
+        commands: [
+            { cmd: 'docker exec -it ${container} ${command}' }
+        ],
     },
     {
         id: 'docker-logs',
@@ -70,7 +72,9 @@ export const templates: CommandTemplate[] = [
         name: '📋 View Logs',
         description: 'Xem logs của container',
         placeholders: ['container'],
-        commands: ['docker logs -f ${container}'],
+        commands: [
+            { cmd: 'docker logs -f ${container}' }
+        ],
     },
     {
         id: 'docker-stop-remove',
@@ -79,8 +83,8 @@ export const templates: CommandTemplate[] = [
         description: 'Dừng và xóa container',
         placeholders: ['container'],
         commands: [
-            'docker stop ${container}',
-            'docker rm ${container}',
+            { cmd: 'docker stop ${container}' },
+            { cmd: 'docker rm ${container}' },
         ],
     },
 ];

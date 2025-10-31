@@ -1,13 +1,13 @@
 import { Container } from "lucide-react";
 
-interface DockerIconProps {
+interface IconProps {
     className?: string;
 }
 
 /**
  * Docker Icon Component
  */
-export function DockerIcon({ className = "size-4" }: DockerIconProps) {
+export function DockerIcon({ className = "size-4" }: IconProps) {
     return (
         <Container className={className} />
     );
