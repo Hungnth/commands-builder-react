@@ -1,6 +1,6 @@
 import type { CommandTemplate } from '@/shared/types';
 
-export const gitTemplates: CommandTemplate[] = [
+export const templates: CommandTemplate[] = [
     {
         id: 'git-add-remote-nth',
         category: 'Git',

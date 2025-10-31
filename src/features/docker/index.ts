@@ -1,14 +1,11 @@
-import { DockerPage } from "./pages/DockerPage";
-import { dockerTemplates } from "./data/dockerTemplates";
-import { DockerIcon } from "./components/DockerIcon";
+import { ModulePage } from './pages/ModulePage.tsx';
+import { templates } from './data/templates.ts';
+import { DockerIcon } from './components/DockerIcon';
 
-/**
- * Docker Module Configuration
- */
 export const dockerModule = {
-  name: "Docker",
-  path: "/docker",
-  icon: DockerIcon,
-  element: DockerPage,
-  templates: dockerTemplates,
+    name: 'Docker',
+    path: '/docker',
+    icon: DockerIcon,
+    element: ModulePage,
+    templates: templates,
 } as const;

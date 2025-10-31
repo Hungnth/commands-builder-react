@@ -1,10 +1,10 @@
-import { TemplateCard, TableOfContents } from "@/shared/components";
-import { gitTemplates } from "../data/gitTemplates";
+import { TemplateCard, TableOfContents } from '@/shared/components';
+import { templates } from '../data/templates.ts';
 
 /**
  * Git Page - Hiển thị tất cả Git templates
  */
-export function GitPage() {
+export function ModulePage() {
     return (
         <div className="flex gap-8">
             {/* Main Content */}
@@ -17,7 +17,7 @@ export function GitPage() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {gitTemplates.map((template) => (
+                    {templates.map((template) => (
                         <TemplateCard key={template.id} template={template} />
                     ))}
                 </div>
@@ -26,7 +26,7 @@ export function GitPage() {
             {/* Table of Contents - Sticky */}
             <aside className="hidden xl:block w-64 shrink-0">
                 <div className="sticky top-20">
-                    <TableOfContents templates={gitTemplates} />
+                    <TableOfContents templates={templates} />
                 </div>
             </aside>
         </div>
