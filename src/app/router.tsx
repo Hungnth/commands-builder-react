@@ -5,6 +5,7 @@ import { RootError } from './layouts/RootError';
 // Import tất cả các module
 import { gitModule } from '@/features/git';
 import { dockerModule } from '@/features/docker';
+import { wordpressModule } from '@/features/wordpress';
 
 // Pages
 import { HomePage } from '@/pages/HomePage';
@@ -17,16 +18,17 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
  */
 export const featureModules = [
     gitModule,
-    dockerModule
+    dockerModule,
+    wordpressModule
 ];
 
 /**
  * Tự động tạo routes từ feature modules
  */
 const featureRoutes = featureModules.map((module) => ({
-    path: module.path,
-    element: <module.element />,
-}
+        path: module.path,
+        element: <module.element />,
+    }
 ));
 
 /**
@@ -38,10 +40,10 @@ export const router = createBrowserRouter([
         element: <MainLayout />,
         errorElement: <RootError />,
         children: [
-            { index: true, element: <HomePage /> },
+            {index: true, element: <HomePage />},
             ...featureRoutes, // Tự động thêm routes từ modules
-            { path: 'about', element: <AboutPage /> },
-            { path: '*', element: <NotFoundPage /> },
+            {path: 'about', element: <AboutPage />},
+            {path: '*', element: <NotFoundPage />},
         ],
     },
 ]);
