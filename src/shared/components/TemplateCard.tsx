@@ -1,10 +1,10 @@
-import { useState, useMemo } from "react";
-import type { CommandTemplate, TemplateInputs } from "@/shared/types";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { CommandOutput } from "./CommandOutput";
-import { replacePlaceholders, toCapitalize, removeUnderscore } from "@/lib/utils";
+import { useState, useMemo } from 'react';
+import type { CommandTemplate, TemplateInputs } from '@/shared/types';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { CommandOutput } from './CommandOutput';
+import { replacePlaceholders, toCapitalize, removeUnderscore } from '@/lib/utils';
 
 interface TemplateCardProps {
     template: CommandTemplate;
@@ -13,7 +13,7 @@ interface TemplateCardProps {
 /**
  * Component để render một template với các input fields và output commands
  */
-export function TemplateCard({ template }: TemplateCardProps) {
+export function TemplateCard({template}: TemplateCardProps) {
     const [inputs, setInputs] = useState<TemplateInputs>({});
 
     const handleInputChange = (key: string, value: string) => {
@@ -29,7 +29,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
     }, [template.commands, inputs]);
 
     // Kiểm tra xem có input nào được điền chưa
-    const hasInputs = Object.values(inputs).some((value) => value.trim() !== "");
+    const hasInputs = Object.values(inputs).some((value) => value.trim() !== '');
 
     return (
         <Card className="w-full" id={template.id}>
@@ -54,7 +54,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
                                         id={`${template.id}-${placeholder}`}
                                         type="text"
                                         placeholder={`Nhập ${removeUnderscore(placeholder)}...`}
-                                        value={inputs[placeholder] || ""}
+                                        value={inputs[placeholder] || ''}
                                         onChange={(e) => handleInputChange(placeholder, e.target.value)}
                                     />
                                 </div>
@@ -64,7 +64,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
                 )}
 
                 {/* Generated Commands */}
-                {hasInputs && (
+                {(hasInputs || template.placeholders.length === 0) && (
                     <div className="space-y-4">
                         <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300">
                             Kết quả:
