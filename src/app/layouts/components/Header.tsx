@@ -7,6 +7,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { Sidebar } from "./Sidebar";
+import { ThemeToggle } from "./ThemeToggle";
 
 /**
  * Header Component - Navigation bar
@@ -38,6 +39,7 @@ export function Header() {
                         <Button variant="ghost" size="sm" asChild>
                             <Link to="/about">About</Link>
                         </Button>
+                        <ThemeToggle />
                     </nav>
                 </div>
             </div>
