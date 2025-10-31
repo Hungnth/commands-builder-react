@@ -2,28 +2,59 @@ import type { CommandTemplate } from '@/shared/types';
 
 export const templates: CommandTemplate[] = [
     {
-        id: 'docker-build',
+        id: 'docker-compose',
         category: 'Docker',
-        name: '🏗️ Build Image',
-        description: 'Build một Docker image từ Dockerfile',
-        placeholders: ['image', 'tag'],
-        commands: ['docker build -t ${image}:${tag} .'],
-    },
-    {
-        id: 'docker-run',
-        category: 'Docker',
-        name: '🚀 Run Container',
-        description: 'Chạy container từ image',
-        placeholders: ['name', 'image', 'port'],
-        commands: ['docker run -d --name ${name} -p ${port}:${port} ${image}'],
-    },
-    {
-        id: 'docker-compose-up',
-        category: 'Docker',
-        name: '⬆️ Docker Compose Up',
+        name: '⬆️ Docker Compose',
         description: 'Khởi động services với Docker Compose',
-        placeholders: ['file'],
-        commands: ['docker-compose -f ${file} up -d'],
+        placeholders: [],
+        commands: [
+            'docker-compose up -d',
+            'docker-compose down -v',
+        ],
+    },
+    {
+        id: 'docker-clear',
+        category: 'Docker',
+        name: '🗑️ Docker Clear',
+        description: 'Xóa tất cả container, image, volume không sử dụng',
+        placeholders: [],
+        commands: [
+            'docker system prune -a',
+            'docker builder prune --all',
+        ],
+    },
+    {
+        id: 'docker-volume',
+        category: 'Docker',
+        name: '🗂️ Docker Volume',
+        description: 'Liệt kê và xóa các volume theo tên',
+        placeholders: ['volume_name'],
+        commands: [
+            'docker volume ls',
+            'docker volume rm ${volume_name}',
+        ],
+    },
+    {
+        id: 'docker-network',
+        category: 'Docker',
+        name: '🖥️ Docker Network',
+        description: 'Liệt kê và xóa các network theo tên',
+        placeholders: ['network_name'],
+        commands: [
+            'docker network ls',
+            'docker network rm ${network_name}',
+        ],
+    },
+    {
+        id: 'docker-image',
+        category: 'Docker',
+        name: '📷 Docker Images',
+        description: 'Liệt kê và xóa các image theo tên',
+        placeholders: ['image_name'],
+        commands: [
+            'docker images ls',
+            'docker rmi ${image_name}',
+        ],
     },
     {
         id: 'docker-exec',
