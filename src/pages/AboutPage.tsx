@@ -1,13 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Code, Zap, Package } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Code, Zap, Package } from 'lucide-react';
 
 /**
  * About Page - Trang giới thiệu về ứng dụng
  */
 export function AboutPage() {
     return (
-        <div className="space-y-8 max-w-4xl">
+        <div className="space-y-8 max-w-4xl mx-auto">
             <div>
                 <h1 className="text-3xl font-bold tracking-tight">About Command Builder</h1>
                 <p className="text-muted-foreground mt-2">
