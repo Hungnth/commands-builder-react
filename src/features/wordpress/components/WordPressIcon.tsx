@@ -2,9 +2,6 @@ interface GitIconProps {
     className?: string;
 }
 
-/**
- * Git Icon Component
- */
 export function WordPressIcon({className = 'size-4'}: GitIconProps) {
     return (
         <svg

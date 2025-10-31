@@ -1,9 +1,6 @@
 import { TemplateCard, TableOfContents } from '@/shared/components';
 import { templates } from '../data/templates.ts';
 
-/**
- * Git Page - Hiển thị tất cả Git templates
- */
 export function ModulePage() {
     return (
         <div className="flex gap-8">
