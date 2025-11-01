@@ -23,6 +23,7 @@ export const templates: CommandTemplate[] = [
             { cmd: 'nano /etc/ssh/sshd_config' },
             { cmd: 'sudo ufw allow ${port}/tcp' },
             { cmd: 'sudo ufw delete allow 22/tcp' },
+            { cmd: 'sudo systemctl restart ssh && sudo systemctl daemon-reload && sudo systemctl restart ssh.socket' },
         ],
     }
 ];
